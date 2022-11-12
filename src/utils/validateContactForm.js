@@ -17,13 +17,18 @@ export const validateContactForm = (values) => {
     errors.lastName = 'Must be 15 characters or less.'
   }
 
-  const reg = /^\d+$/;
-  if (!reg.test(values.phoneNum)) {
-    errors.phoneNum = 'The phone number should only contain numbers.'
+  const reg = /^\d{10}$/;
+  if (!values.phoneNum) {
+    errors.phoneNum = 'Required';
+  } else if (!reg.test(values.phoneNum)) {
+    errors.phoneNum = 'The phone number should only contain numbers(10 total including area code).'
   }
 
-  if (!values.email.includes('@')) {
-    errors.email = 'Email should contain a @';
+  const reg2 =/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+  if(!values.email) {
+    errors.email = 'Required';
+  } else if (!reg2.test(values.email)) {
+    errors.email = 'Please enter a valid email address.'
   }
 
   return errors;
