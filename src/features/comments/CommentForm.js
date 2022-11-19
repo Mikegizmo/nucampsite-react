@@ -33,7 +33,7 @@ const CommentForm = ({campsiteId}) => {
             initialValues = {{ rating: undefined, author: '', commentText: '' }}
             onSubmit = {handleSubmit}
             validate = {validateCommentForm}
-            >
+          >
             <Form>
               <FormGroup>
                 <Label htmlFor='rating'>Rating</Label>
