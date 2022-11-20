@@ -26,7 +26,7 @@ const campsitesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchCampsites.pending]: (state)=> {
+    [fetchCampsites.pending]: (state) => {
       state.isLoading = true;
     },
     [fetchCampsites.fulfilled]: (state, action) => {
